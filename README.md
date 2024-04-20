@@ -22,6 +22,7 @@ Fortunately, diffusers already implemented LoRA based on SDXL [here](https://git
 For example, your training script would be like this.
 ```bash
 export MODEL_NAME="stabilityai/stable-diffusion-xl-base-1.0"
+export VAE_PATH="madebyollin/sdxl-vae-fp16-fix"
 # for subject
 export OUTPUT_DIR="lora-sdxl-dog"
 export INSTANCE_DIR="dog"
@@ -39,6 +40,7 @@ accelerate launch train_dreambooth_lora_sdxl.py \
   --instance_data_dir=$INSTANCE_DIR \
   --output_dir=$OUTPUT_DIR \
   --instance_prompt="${PROMPT}" \
+  --pretrained_vae_model_name_or_path=$VAE_PATH \
   --rank=64 \
   --resolution=1024 \
   --train_batch_size=1 \

@@ -12,3 +12,5 @@ xformers>=0.0.20
 scipy
 fire
 gradio
+perf=0.10.0
+huggingface_hub
